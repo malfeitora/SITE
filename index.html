@@ -123,7 +123,7 @@
       </iframe>
     </div>
     <h2>Sobre o Mundo</h2>
-    <p>Descubra os segredos enterrados nas ruínas do Flagelo Estelar...</p>
+    <p>Descubra os segredos enterrados nas ruínas de Khazan...</p>
   </section>
 
   <section class="content-section fade-in" id="classes">
@@ -131,7 +131,7 @@
       src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQwr2Wy8rkWn54THU-vbD9ZwvIn7HWVGT2KB6xFo9LUwvQyo94UAeSqNfI&s=10" 
       alt="Imagem Classes">
     <h2>Classes</h2>
-    <p>Escolha entre samurai, Vagabond, Confessor e mais.</p>
+    <p>Escolha entre espadachins, arcanistas, berserkers e mais.</p>
   </section>
 
   <section class="content-section fade-in" id="explore">
@@ -139,7 +139,7 @@
       src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRiBfaVc1-88bCf_pEb6wkpMJHbeYcBgPbB6eAxwUG0c-Vs7-CuYwBCZL0&s=10" 
       alt="Imagem Exploração">
     <h2>Exploração</h2>
-    <p>Ambientes adaptados e interativos, cinemáticas interativas e batalhas épicas.</p>
+    <p>Ambientes 3D, cinemáticas interativas e batalhas épicas.</p>
   </section>
 
   <footer>
@@ -153,6 +153,7 @@
     allow="autoplay">
   </iframe>
 
+  <!-- EFEITO DE SCROLL -->
   <script>
     const sections = document.querySelectorAll('.fade-in');
     const observer = new IntersectionObserver((entries) => {
@@ -166,6 +167,82 @@
     }, { threshold: 0.1 });
 
     sections.forEach(section => observer.observe(section));
+  </script>
+
+  <!-- BOTÃO FLUTUANTE E MENU LATERAL -->
+  <script>
+    // Cria botão flutuante
+    const floatingMenu = document.createElement('div');
+    floatingMenu.style.position = 'fixed';
+    floatingMenu.style.top = '15px';
+    floatingMenu.style.left = '15px';
+    floatingMenu.style.zIndex = '1000';
+
+    const menuButton = document.createElement('button');
+    menuButton.textContent = '⋮';
+    menuButton.style.backgroundColor = '#222';
+    menuButton.style.color = '#fff';
+    menuButton.style.border = 'none';
+    menuButton.style.borderRadius = '6px';
+    menuButton.style.fontSize = '1.5em';
+    menuButton.style.padding = '6px 12px';
+    menuButton.style.cursor = 'pointer';
+    menuButton.style.boxShadow = '0 2px 6px rgba(0,0,0,0.5)';
+    menuButton.style.transition = 'background-color 0.3s';
+
+    menuButton.addEventListener('mouseenter', () => {
+      menuButton.style.backgroundColor = '#444';
+    });
+
+    menuButton.addEventListener('mouseleave', () => {
+      menuButton.style.backgroundColor = '#222';
+    });
+
+    floatingMenu.appendChild(menuButton);
+    document.body.appendChild(floatingMenu);
+
+    // Cria o menu lateral
+    const sidePanel = document.createElement('div');
+    sidePanel.style.position = 'fixed';
+    sidePanel.style.top = '0';
+    sidePanel.style.left = '0';
+    sidePanel.style.height = '100%';
+    sidePanel.style.width = '50%';
+    sidePanel.style.backgroundColor = '#111';
+    sidePanel.style.color = '#fff';
+    sidePanel.style.padding = '2em 1em';
+    sidePanel.style.boxShadow = '4px 0 12px rgba(0,0,0,0.5)';
+    sidePanel.style.zIndex = '999';
+    sidePanel.style.transform = 'translateX(-100%)';
+    sidePanel.style.transition = 'transform 0.3s ease';
+    sidePanel.style.display = 'flex';
+    sidePanel.style.flexDirection = 'column';
+    sidePanel.style.gap = '1em';
+
+    const options = [
+      "Armas", "Classes", "Encantamentos", "Equipamentos",
+      "Fabricações", "Inventário", "Itens", "Mais",
+      "Poções", "Runas"
+    ];
+
+    options.sort().forEach(option => {
+      const item = document.createElement('div');
+      item.textContent = option;
+      item.style.fontSize = '1.2em';
+      item.style.cursor = 'pointer';
+      item.style.padding = '0.5em 0';
+      item.style.borderBottom = '1px solid #333';
+      sidePanel.appendChild(item);
+    });
+
+    document.body.appendChild(sidePanel);
+
+    // Alterna o menu
+    let isOpen = false;
+    menuButton.addEventListener('click', () => {
+      isOpen = !isOpen;
+      sidePanel.style.transform = isOpen ? 'translateX(0)' : 'translateX(-100%)';
+    });
   </script>
 </body>
 </html>
