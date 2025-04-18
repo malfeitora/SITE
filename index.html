@@ -2,52 +2,170 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>The First Berserker: Maculado</title>
-  
-  <!-- Adicionando a fonte "Uncial Antiqua" -->
-  <link href="https://fonts.googleapis.com/css2?family=Uncial+Antiqua&display=swap" rel="stylesheet" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Shadows of Death | RPG Cinemático</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #000;
+      color: #fff;
+    }
 
-  <link rel="stylesheet" href="styles.css" />
+    .navbar {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 60px;
+      background-color: #111;
+      color: #fff;
+      font-family: 'Georgia', serif;
+      font-size: 1.1em;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
+    .hero {
+      position: relative;
+      height: 60vh;
+      overflow: hidden;
+      background: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRTgqXsGq4LpH-2j3p62dHR2849KuBDQdbxH5l2BJtZGf3YfUgVvRQboic&s=10") center/cover no-repeat;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.4);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: #fff;
+    }
+
+    .hero-title {
+      font-size: 2em;
+      margin: 0;
+    }
+
+    .content-section {
+      padding: 3em 1em;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .youtube-embed {
+      width: 100%;
+      height: 400px;
+      margin-bottom: 1em;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .content-section img {
+      display: block;
+      width: 100%;
+      border-radius: 12px;
+      margin-bottom: 1em;
+    }
+
+    footer {
+      background-color: #111;
+      text-align: center;
+      padding: 1em;
+      font-size: 0.9em;
+    }
+
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    #music-player {
+      position: absolute;
+      width: 0;
+      height: 0;
+      border: none;
+    }
+  </style>
 </head>
 <body>
-  <header>
-    <div class="logo">LordOfTree</div>
-    <nav>
-      <a href="#bonuses">Itens místicos</a>
-      <a href="#buy">Venha já!</a>
-    </nav>
+  <header class="navbar">
+    <div class="nav-logo">Shadows of Death</div>
   </header>
 
   <section class="hero">
-    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT98X6ECbmpy7RIbEFUt0N24JEhzMYGcAQPdfINhgngCV6bI11xx_bwfGc&s=10" alt="Banner Messmer" />
-    <div class="hero-text">
-      <h1 style="font-family: 'Uncial Antiqua', serif;">The First Berserker: Maculado</h1>
-      <p>Desperte sua fúria na nova era do RPG de ação.</p>
-      <!-- Alterando o link para redirecionar ao clicar -->
-      <a href="http://aminoapps.com/invite/LYUTQGK2I6" class="btn" target="_blank">IR AGORA!</a>
+    <div class="hero-overlay">
+      <h1 class="hero-title">O Retorno do Rei Perdido</h1>
     </div>
   </section>
 
-  <main>
-    <section id="bonuses">
-      <h2>Itens místicos!</h2>
-      <ul>
-        <li>Armadura Lendária</li>
-        <li>Arma Rara</li>
-        <li>Livro de Arte Digital</li>
-      </ul>
-    </section>
+  <section class="content-section fade-in" id="about">
+    <div class="youtube-embed">
+      <iframe 
+        width="100%" 
+        height="100%" 
+        src="https://www.youtube.com/embed/Mf3ncLk2Zns?si=5jKGlMp3PB_I7Jhh" 
+        title="YouTube video player" 
+        frameborder="0" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+        allowfullscreen>
+      </iframe>
+    </div>
+    <h2>Sobre o Mundo</h2>
+    <p>Descubra os segredos enterrados nas ruínas de Khazan...</p>
+  </section>
 
-    <section id="buy">
-      <h2>DISPONÍVEL PARA:</h2>
-      <p>amino | Project Z (futuramente)</p>
-      <button class="btn">Mais informações</button>
-    </section>
-  </main>
+  <section class="content-section fade-in" id="classes">
+    <img 
+      src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQwr2Wy8rkWn54THU-vbD9ZwvIn7HWVGT2KB6xFo9LUwvQyo94UAeSqNfI&s=10" 
+      alt="Imagem Classes">
+    <h2>Classes</h2>
+    <p>Escolha entre espadachins, arcanistas, berserkers e mais.</p>
+  </section>
+
+  <section class="content-section fade-in" id="explore">
+    <img 
+      src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRiBfaVc1-88bCf_pEb6wkpMJHbeYcBgPbB6eAxwUG0c-Vs7-CuYwBCZL0&s=10" 
+      alt="Imagem Exploração">
+    <h2>Exploração</h2>
+    <p>Ambientes 3D, cinemáticas interativas e batalhas épicas.</p>
+  </section>
 
   <footer>
-    <p>&copy; 2025| Projeto inspirado por fã</p>
+    <p>&copy; 2025 Shadows of Death. Todos os direitos reservados.</p>
   </footer>
+
+  <!-- MÚSICA DE FUNDO -->
+  <iframe
+    id="music-player"
+    src="https://www.youtube.com/embed/N2p_JFF4lR0?autoplay=1&loop=1&playlist=N2p_JFF4lR0&mute=1"
+    allow="autoplay">
+  </iframe>
+
+  <script>
+    const sections = document.querySelectorAll('.fade-in');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        } else {
+          entry.target.classList.remove('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    sections.forEach(section => observer.observe(section));
+  </script>
 </body>
 </html>
